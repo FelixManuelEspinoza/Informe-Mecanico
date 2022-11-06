@@ -6,29 +6,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InformeBD.entidades
+namespace InformeBD.Data.entidades
 {
-    [Index(nameof(Matricula), Name = "Numero de matricula del vehiculo", IsUnique = true)]
-     public class Vehiculo   
+    [Index(nameof(DNI), Name = "Numero de DNI", IsUnique = true)]
+    public class Empleado
     {
 
         [Required(ErrorMessage = "campo obligatorio")]
         [MaxLength(20, ErrorMessage = "Este dato no puede tener mas de {1} caracteres")]
-        public string Marca { get; set; }
+        public string Nombre { get; set; }
 
         [Required(ErrorMessage = "campo obligatorio")]
         [MaxLength(20, ErrorMessage = "Este dato no puede tener mas de {1} caracteres")]
-        public string Modelo { get; set; }
+        public string Apellido { get; set; }
+        
+        [Required(ErrorMessage = "campo obligatorio")]
+        [MaxLength(20, ErrorMessage = "Este dato no puede tener mas de {1} caracteres")]
+        [Key]
+        public string DNI { get; set; }
+        
+        [Required(ErrorMessage = "campo obligatorio")]
+        [MaxLength(20, ErrorMessage = "Este dato no puede tener mas de {1} caracteres")]
+        public string Cargo { get; set; }
 
         [Required(ErrorMessage = "campo obligatorio")]
         [MaxLength(20, ErrorMessage = "Este dato no puede tener mas de {1} caracteres")]
-        public string Matricula { get; set; }
-
-        [Required(ErrorMessage = "campo obligatorio")]
-        [MaxLength(500, ErrorMessage = "Este dato no puede tener mas de {1} caracteres")]
-        public string Detalles { get; set; }    
-
-
+        public string NumTelefono { get; set; }
 
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace InformeBD.entidades
 {
-    [Index (nameof(DNI), Name= "Numero de DNI", IsUnique = true)]
+    [Index(nameof(Matricula), Name = "Numero de matricula del vehiculo", IsUnique = true)]
     public class Cliente
     {
        
@@ -22,7 +22,33 @@ namespace InformeBD.entidades
 
         [Required(ErrorMessage = "campo obligatorio")]
         [MaxLength(20, ErrorMessage = "Este dato no puede tener mas de {1} caracteres")]
-        public string DNI { get; set; } 
+        [Key]
+        public string DNI { get; set; }
+
+        [Required(ErrorMessage = "campo obligatorio")]
+        [MaxLength(20, ErrorMessage = "Este dato no puede tener mas de {1} caracteres")]
+        public string NumTelefono { get; set; }
+        
+        [Required(ErrorMessage = "campo obligatorio")]
+        [MaxLength(20, ErrorMessage = "Este dato no puede tener mas de {1} caracteres")]
+        public string MarcaVehiculo { get; set; }
+
+        [Required(ErrorMessage = "campo obligatorio")]
+        [MaxLength(20, ErrorMessage = "Este dato no puede tener mas de {1} caracteres")]
+        public string ModeloVehiculo { get; set; }
+
+        [Required(ErrorMessage = "campo obligatorio")]
+        [MaxLength(20, ErrorMessage = "Este dato no puede tener mas de {1} caracteres")]
+        public string Matricula { get; set; }
+
+        [Required(ErrorMessage = "campo obligatorio")]
+        [MaxLength(500, ErrorMessage = "Este dato no puede tener mas de {1} caracteres")]
+        public string DetallesDehiculo { get; set; }
+
+        [Required(ErrorMessage = "campo obligatorio")]
+        [MaxLength(20, ErrorMessage = "Este dato no puede tener mas de {1} caracteres")]
+        public string FechaDeEntrada { get; set; }
+
 
     }
 }

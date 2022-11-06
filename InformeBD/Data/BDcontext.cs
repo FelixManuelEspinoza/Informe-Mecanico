@@ -12,14 +12,10 @@ namespace InformeBD.Data
     public class BDcontext : DbContext
     {
 
-        public DbSet <Mecanico> Mecanicos { get; set; } 
 
-        public DbSet <Cliente> Clientes { get; set; }
+        public DbSet<Cliente> Clientes { get; set; }
 
-        public DbSet <Vehiculo> Vehiculos { get; set; }
-
-        public DbSet <Secretario> Secretarios { get; set; }
-
+        public DbSet<Empleado> Empleados  { get; set; }
 
         public BDcontext(DbContextOptions options) : base(options)
         {

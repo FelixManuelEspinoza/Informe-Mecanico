@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace Informe_Mecanico.Server.controllers
 {
     [ApiController]
@@ -22,9 +23,27 @@ namespace Informe_Mecanico.Server.controllers
         {
             try
             {
-                Cliente Cliente = new(cliente);
-                Cliente.DNI = Cliente.DNI 
+                Cliente Cliente = new Cliente ();
+                Cliente.DNI = Cliente.DNI; 
+                Cliente.Nombre = Cliente.Nombre;    
+                Cliente.Apellido = Cliente.Apellido;    
+                Cliente.NumTelefono = Cliente.NumTelefono;
+                Cliente.MarcaVehiculo = Cliente.MarcaVehiculo;
+                Cliente.ModeloVehiculo = Cliente.ModeloVehiculo;
+                Cliente.Matricula = Cliente.Matricula;
+                Cliente.DetallesDehiculo = Cliente.DetallesDehiculo; 
+                Cliente.FechaDeEntrada = Cliente.FechaDeEntrada;    
+                Cliente.FechaDeSalida = Cliente.FechaDeSalida;
 
+                DbContext.Clientes.add(Cliente);
+                await DbContext.SaveChangesAsynk();
+                return Cliente.DNI;
+
+
+            }
+            catch (Exception error)
+            {
+                return BadRequest(error.GetBaseException + error.Message);
             }
         }
     }

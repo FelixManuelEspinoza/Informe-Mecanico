@@ -49,6 +49,8 @@ namespace InformeBD.entidades
         [MaxLength(20, ErrorMessage = "Este dato no puede tener mas de {1} caracteres")]
         public string FechaDeEntrada { get; set; }
 
-
+        [Required(ErrorMessage = "campo obligatorio")]
+        [MaxLength(20, ErrorMessage = "Este dato no puede tener mas de {1} caracteres")]
+        public string FechaDeSalida { get; set; }   
     }
 }
